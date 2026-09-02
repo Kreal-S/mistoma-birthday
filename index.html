@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09051f">
+<title>For MiStoma 💜</title>
+<style>
+:root{--purple:#9d7cff;--blue:#56a8ff;--deep:#070419;--card:rgba(18,12,52,.78);--text:#f7f3ff;--muted:#c9c1e8}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#050311;color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow-x:hidden}
+button{font:inherit}
+#app{min-height:100vh;position:relative;background:
+radial-gradient(circle at 20% 10%,rgba(105,67,205,.42),transparent 28%),
+radial-gradient(circle at 80% 20%,rgba(39,108,205,.35),transparent 27%),
+linear-gradient(160deg,#050311,#0d0828 55%,#040718);overflow:hidden}
+#stars,#sparkles{position:absolute;inset:0;pointer-events:none}
+.star{position:absolute;width:2px;height:2px;background:white;border-radius:50%;opacity:.65;animation:twinkle 2.8s ease-in-out infinite}
+.spark{position:absolute;font-size:18px;opacity:.45;animation:float 7s ease-in-out infinite}
+main{position:relative;z-index:2;max-width:760px;margin:auto;padding:26px 18px 70px}
+.screen{min-height:82vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:35px 0}
+.hidden{display:none!important}
+.eyebrow{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#bba8ff;font-weight:800}
+h1{font-size:clamp(2.5rem,10vw,5.4rem);line-height:.98;letter-spacing:-.055em;margin:14px 0}
+h2{font-size:clamp(1.8rem,7vw,3rem);line-height:1.05;margin:12px 0}
+p{color:var(--muted);line-height:1.75;max-width:650px}
+.hero-heart{font-size:4rem;filter:drop-shadow(0 0 18px rgba(160,125,255,.65));animation:pulse 2s ease-in-out infinite}
+.card{width:100%;padding:25px;border:1px solid rgba(196,177,255,.22);border-radius:26px;background:var(--card);backdrop-filter:blur(12px);box-shadow:0 22px 65px rgba(0,0,0,.35);margin:14px 0}
+button.primary{border:0;color:white;background:linear-gradient(135deg,#9b75ff,#4f91ff);padding:14px 22px;border-radius:999px;font-weight:800;cursor:pointer;box-shadow:0 10px 30px rgba(94,73,204,.3);margin:7px;min-height:48px}
+button.secondary{border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.07);color:white;padding:13px 20px;border-radius:999px;font-weight:750;cursor:pointer;margin:7px;min-height:48px}
+button:focus-visible{outline:3px solid #c9bcff;outline-offset:3px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;width:100%;margin-top:20px}
+.grid button{min-height:90px;border-radius:20px;border:1px solid rgba(190,170,255,.2);background:rgba(255,255,255,.06);color:#fff;cursor:pointer;padding:15px;font-weight:750}
+.grid button:hover{background:rgba(155,124,255,.16)}
+.photo{width:100%;max-height:520px;object-fit:cover;border-radius:20px;border:1px solid rgba(255,255,255,.14);display:block}
+.photo.goku{object-fit:contain;background:#08051b;max-height:540px}
+.caption{font-size:.82rem;color:#a9a0c9;margin-top:10px}
+.message{text-align:left}
+.message p{max-width:none}
+.mini{font-size:.86rem}
+.progress{height:13px;background:rgba(255,255,255,.09);border-radius:999px;overflow:hidden;margin:20px 0}
+.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#7655ff,#6ac8ff,#fff);transition:width 1.2s ease}
+.power-orb{font-size:5rem;display:inline-block;animation:power 1s ease-in-out infinite alternate;filter:drop-shadow(0 0 16px #8fdcff)}
+.giftbox{font-size:6rem;cursor:pointer;animation:bob 1.8s ease-in-out infinite}
+.final-goku{animation:ultra 1.4s ease-in-out infinite alternate;box-shadow:0 0 0 0 rgba(150,210,255,0)}
+.credits{font-size:.75rem;color:#8f87ad;margin-top:25px}
+@keyframes twinkle{0%,100%{transform:scale(.7);opacity:.25}50%{transform:scale(1.5);opacity:.9}}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-24px) rotate(8deg)}}
+@keyframes pulse{50%{transform:scale(1.12)}}
+@keyframes power{from{transform:scale(.9);filter:drop-shadow(0 0 8px #7057ff)}to{transform:scale(1.17);filter:drop-shadow(0 0 30px #9fe9ff)}}
+@keyframes bob{50%{transform:translateY(-10px) rotate(2deg)}}
+@keyframes ultra{from{transform:scale(1);filter:brightness(1) drop-shadow(0 0 8px #8068ff)}to{transform:scale(1.035);filter:brightness(1.22) drop-shadow(0 0 32px #a7eaff)}}
+@media(max-width:520px){main{padding-left:14px;padding-right:14px}.grid{grid-template-columns:1fr}.screen{min-height:78vh}.card{padding:20px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="app">
+<div id="stars"></div><div id="sparkles"></div>
+<main>
+<section class="screen" id="intro">
+  <div class="eyebrow">A secret birthday message from your Princess 👑</div>
+  <div class="hero-heart">💜</div>
+  <h1>Happy Birthday,<br>MiStoma ✨</h1>
+  <p>15 September. A very important date because the universe decided it needed one very special, slightly ick, galaxy-loving boy in it.</p>
+  <button class="primary" id="start">Enter your birthday universe 🌌</button>
+</section>
+
+<section class="screen hidden" id="home">
+  <div class="eyebrow">Welcome, my sweet boy</div>
+  <h2>Your little universe awaits 💜💙</h2>
+  <p>Tap around. There are things here that your Princess needs you to see.</p>
+  <div class="grid">
+    <button data-panel="letter">💌<br>A message from me</button>
+    <button data-panel="memory">📸<br>A little memory</button>
+    <button data-panel="reasons">🌌<br>Things I adore about you</button>
+    <button data-panel="debt">🎮<br>An important debt</button>
+    <button data-panel="training">⚡<br>Birthday power-up</button>
+    <button data-panel="final">🎁<br>Don't touch this yet...</button>
+  </div>
+  <div id="panel" class="card hidden"></div>
+  <button class="secondary hidden" id="closePanel">← Back</button>
+</section>
+
+<section class="screen hidden" id="finish">
+  <div class="eyebrow">Final level unlocked</div>
+  <h2>Okay, birthday boy... 🎁</h2>
+  <p>You found everything. Which means there is only one thing left.</p>
+  <div class="giftbox" id="gift">🎁</div>
+  <button class="primary" id="openGift">Open your present</button>
+  <div id="powerStage" class="card hidden">
+    <div class="power-orb">⚡</div>
+    <h2>ULTRA INSTINCT</h2>
+    <p id="powerText">Gathering birthday ki...</p>
+    <div class="progress"><span id="powerBar"></span></div>
+    <div id="finalReveal" class="hidden">
+      <img class="photo goku final-goku" src="images/goku.jpg" alt="Goku powering up on a cloud">
+      <h2>HAPPY BIRTHDAY, VALANCE ⚡</h2>
+      <p>May this year bring you happiness, success, peace, adventures and everything your heart wants.</p>
+      <p><strong>May you have a lifetime of Ultra Instinct boners. 😭💜</strong></p>
+      <p>Love you endlessly, my sweet boy. 💜💙</p>
+      <p class="mini">— Your Princess 👑</p>
+    </div>
+  </div>
+</section>
+</main>
+</div>
+
+<script>
+(function(){
+  const root=document.getElementById('app');
+  const stars=document.getElementById('stars'), sparkles=document.getElementById('sparkles');
+  for(let i=0;i<65;i++){
+    const s=document.createElement('span');s.className='star';
+    s.style.left=(Math.random()*100)+'%';s.style.top=(Math.random()*100)+'%';
+    s.style.animationDelay=(Math.random()*3)+'s';s.style.animationDuration=(2+Math.random()*3)+'s';
+    stars.appendChild(s);
+  }
+  ['✦','✧','✦','⋆','♡'].forEach((x,i)=>{
+    const s=document.createElement('span');s.className='spark';s.textContent=x;
+    s.style.left=(8+i*19)+'%';s.style.top=(18+(i%3)*25)+'%';s.style.animationDelay=(i*.8)+'s';
+    sparkles.appendChild(s);
+  });
+
+  const intro=document.getElementById('intro'),home=document.getElementById('home'),finish=document.getElementById('finish');
+  document.getElementById('start').addEventListener('click',()=>{
+    intro.classList.add('hidden');home.classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});
+  });
+
+  const panel=document.getElementById('panel'),close=document.getElementById('closePanel');
+  const panels={
+    letter:`<div class="eyebrow">From your Princess 👑</div>
+      <h2>To my sweet boy, my honey 💜</h2>
+      <div class="message">
+      <p>Happy birthday to the most amazing angel ever. I love and adore you more than I can properly put into words. These seven-ish months with you have given me so many little moments that I treasure, and I am genuinely so grateful that our paths crossed.</p>
+      <p>You make my world brighter simply by being you. I love your little quirks, your silly side, your love for the stars and galaxies, and all the things that make you <em>you</em>.</p>
+      <p>And honestly... even though you are an <strong>ickdian</strong> 😭, I am so, so glad I met you.</p>
+      <p>I hope this next year brings you happiness, peace, success, adventures and all the little things that make you smile. I will always be cheering for you, my sweet boy.</p>
+      <p><strong>Happy birthday, MiStoma. I love you endlessly. 💜💙</strong></p></div>`,
+    memory:`<div class="eyebrow">One of my favourite little moments</div>
+      <img class="photo" src="images/us.jpg" alt="A photo of us">
+      <p class="caption">Just a little reminder of one of the reasons I am so glad we found each other. 💜</p>`,
+    reasons:`<div class="eyebrow">Your Princess has a list...</div>
+      <h2>Things I adore about you 🌌</h2>
+      <div class="message">
+      <p>✨ You are my sweet boy.</p><p>💙 You make me feel loved and special.</p><p>🌌 You have a whole galaxy of things you love, and I love getting to know them with you.</p><p>🥹 You can make ordinary moments feel special.</p><p>👑 You call me your princess, sweet girl and beautiful girl — so obviously you have excellent taste.</p><p>💜 Most importantly, you are you. And I adore you exactly as you are.</p></div>`,
+    debt:`<div class="eyebrow">OFFICIAL PRINCESS NOTICE</div>
+      <h2>There is one unresolved matter. 🎮</h2>
+      <p>After a highly scientific investigation, the verdict is final:</p>
+      <p style="font-size:1.35rem"><strong>YOU OWE YOUR PRINCESS A CODM MYTHIC. 😭💸</strong></p>
+      <p>This debt cannot be ignored. Birthday privileges do not cancel outstanding Mythic obligations.</p>
+      <button class="primary" id="ack">I acknowledge my debt 😔</button>`,
+    training:`<div class="eyebrow">Birthday training simulation</div>
+      <h2>Unlock Ultra Instinct ⚡</h2><p>Tap the button to charge your birthday ki.</p>
+      <div class="progress"><span id="miniBar"></span></div><p id="chargeText">Power level: 0%</p>
+      <button class="primary" id="charge">CHARGE KI ⚡</button>`,
+    final:`<div class="eyebrow">You found the suspicious button...</div>
+      <h2>Not yet. 😭</h2><p>The actual present is at the end. Go back and finish your birthday journey first, birthday boy.</p>`
+  };
+
+  document.querySelectorAll('[data-panel]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      panel.innerHTML=panels[btn.dataset.panel];panel.classList.remove('hidden');close.classList.remove('hidden');
+      if(btn.dataset.panel==='debt'){
+        document.getElementById('ack').addEventListener('click',e=>{e.currentTarget.textContent='Debt acknowledged. Good boy. 😌💜';});
+      }
+      if(btn.dataset.panel==='training'){
+        let n=0;
+        document.getElementById('charge').addEventListener('click',()=>{
+          n=Math.min(100,n+20);document.getElementById('miniBar').style.width=n+'%';
+          document.getElementById('chargeText').textContent=n<100?'Power level: '+n+'%':'ULTRA INSTINCT ACHIEVED ⚡';
+        });
+      }
+      if(btn.dataset.panel==='final'){
+        panel.innerHTML+=`<button class="primary" id="goFinal">Fine. Take me to the present 🎁</button>`;
+        document.getElementById('goFinal').addEventListener('click',()=>showFinish());
+      }
+      panel.scrollIntoView({behavior:'smooth',block:'center'});
+    });
+  });
+  close.addEventListener('click',()=>{panel.classList.add('hidden');close.classList.add('hidden');});
+
+  function showFinish(){home.classList.add('hidden');finish.classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});}
+  document.getElementById('openGift').addEventListener('click',()=>{
+    document.getElementById('powerStage').classList.remove('hidden');
+    document.getElementById('openGift').disabled=true;
+    let n=0;const bar=document.getElementById('powerBar'),text=document.getElementById('powerText');
+    const timer=setInterval(()=>{
+      n+=10;bar.style.width=n+'%';text.textContent=n<100?'Powering up... '+n+'%':'ULTRA INSTINCT ACTIVATED ⚡';
+      if(n>=100){clearInterval(timer);setTimeout(()=>{document.getElementById('finalReveal').classList.remove('hidden');document.getElementById('finalReveal').scrollIntoView({behavior:'smooth',block:'center'});},450);}
+    },150);
+  });
+})();
+</script>
+</body>
+</html>
