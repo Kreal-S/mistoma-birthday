@@ -262,6 +262,7 @@ button:focus-visible{outline:3px solid #c9bcff;outline-offset:3px}
 </style>
 </head>
 <body>
+<audio id="music" src="Look_After_You_-_THE_FRAY_(mp3.pm).mp3" preload="auto"></audio> 
 <div id="app">
 <div id="stars"></div><div id="sparkles"></div>
 <main>
@@ -332,8 +333,9 @@ button:focus-visible{outline:3px solid #c9bcff;outline-offset:3px}
 
   const intro=document.getElementById('intro'),home=document.getElementById('home'),finish=document.getElementById('finish');
   document.getElementById('start').addEventListener('click',()=>{
-    intro.classList.add('hidden');home.classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});
-  });
+  document.getElementById('music').play();
+  intro.classList.add('hidden');home.classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});
+});
 
   const panel=document.getElementById('panel'),close=document.getElementById('closePanel');
   const panels={
