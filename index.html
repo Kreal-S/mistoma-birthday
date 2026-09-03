@@ -457,6 +457,7 @@ button:focus-visible{outline:3px solid #c9bcff;outline-offset:3px}
   close.addEventListener('click',()=>{panel.classList.add('hidden');close.classList.add('hidden');});
 
   function showFinish(){home.classList.add('hidden');finish.classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});}
+  window.showFinish=showFinish;
   document.getElementById('openGift').addEventListener('click',()=>{
     document.getElementById('powerStage').classList.remove('hidden');
     document.getElementById('openGift').disabled=true;
