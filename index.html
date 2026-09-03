@@ -53,6 +53,200 @@ button:focus-visible{outline:3px solid #c9bcff;outline-offset:3px}
 @keyframes ultra{from{transform:scale(1);filter:brightness(1) drop-shadow(0 0 8px #8068ff)}to{transform:scale(1.035);filter:brightness(1.22) drop-shadow(0 0 32px #a7eaff)}}
 @media(max-width:520px){main{padding-left:14px;padding-right:14px}.grid{grid-template-columns:1fr}.screen{min-height:78vh}.card{padding:20px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+  /* Birthday Cake */
+
+.cake-scene{
+  position:relative;
+  width:280px;
+  height:330px;
+  margin:35px auto 15px;
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  flex-direction:column;
+}
+
+.cake-plate{
+  width:250px;
+  height:24px;
+  border-radius:50%;
+  background:linear-gradient(#d9d5ff,#8d82c9);
+  box-shadow:0 8px 25px rgba(120,80,255,.35);
+}
+
+.cake-body{
+  position:relative;
+  width:190px;
+  height:105px;
+  border-radius:15px 15px 30px 30px;
+  background:linear-gradient(90deg,#eeeaff,#ffffff,#ddd8f5);
+  box-shadow:0 10px 25px rgba(0,0,0,.25);
+  overflow:hidden;
+}
+
+.cake-top{
+  position:relative;
+  width:205px;
+  height:65px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#ffffff,#ddd9ff);
+  z-index:2;
+  margin-bottom:-25px;
+  box-shadow:0 5px 12px rgba(0,0,0,.15);
+}
+
+.cake-icing{
+  position:absolute;
+  width:100%;
+  height:28px;
+  top:5px;
+  border-radius:50%;
+  background:#fff;
+}
+
+.cake-icing:after{
+  content:"";
+  position:absolute;
+  width:22px;
+  height:25px;
+  left:40px;
+  top:17px;
+  border-radius:0 0 15px 15px;
+  background:#fff;
+  box-shadow:
+    45px 4px 0 #fff,
+    90px 0 0 #fff,
+    135px 4px 0 #fff;
+}
+
+.cake-berries{
+  position:absolute;
+  bottom:8px;
+  left:0;
+  width:100%;
+  text-align:center;
+  font-size:17px;
+  color:#b51658;
+}
+
+.cake-shine{
+  position:absolute;
+  width:18px;
+  height:70px;
+  left:35px;
+  top:15px;
+  border-radius:20px;
+  background:rgba(255,255,255,.35);
+  transform:rotate(8deg);
+}
+
+.candles{
+  position:absolute;
+  bottom:210px;
+  width:220px;
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  z-index:5;
+}
+
+.candle{
+  position:relative;
+  width:34px;
+  height:80px;
+  padding:0;
+  border:0;
+  background:none;
+  cursor:pointer;
+  transform-origin:bottom center;
+  transition:transform .2s;
+}
+
+.candle:hover{
+  transform:scale(1.08);
+}
+
+.candle-body{
+  position:absolute;
+  bottom:0;
+  left:6px;
+  width:22px;
+  height:52px;
+  border-radius:5px 5px 8px 8px;
+  background:linear-gradient(90deg,#7657d9,#b8a4ff,#6847c7);
+  box-shadow:inset 4px 0 rgba(255,255,255,.25);
+}
+
+.wick{
+  position:absolute;
+  bottom:50px;
+  left:16px;
+  width:3px;
+  height:10px;
+  background:#333;
+  z-index:2;
+}
+
+.flame{
+  position:absolute;
+  bottom:59px;
+  left:7px;
+  font-size:25px;
+  filter:drop-shadow(0 0 8px #ffd85c);
+  animation:flicker .7s infinite alternate;
+  z-index:3;
+}
+
+.smoke{
+  position:absolute;
+  bottom:57px;
+  left:3px;
+  font-size:27px;
+  opacity:0;
+  pointer-events:none;
+}
+
+.candle.blown .flame{
+  display:none;
+}
+
+.candle.blown .smoke{
+  animation:smokeUp 1.2s ease-out forwards;
+}
+
+.candle.blown .candle-body{
+  opacity:.75;
+  box-shadow:none;
+}
+
+@keyframes flicker{
+  from{transform:scale(1) rotate(-3deg);}
+  to{transform:scale(1.12) rotate(3deg);}
+}
+
+@keyframes smokeUp{
+  0%{
+    opacity:0;
+    transform:translateY(5px) scale(.7);
+  }
+  30%{
+    opacity:1;
+  }
+  100%{
+    opacity:0;
+    transform:translateY(-35px) scale(1.4);
+  }
+}
+
+.candle.blown{
+  animation:blown .35s ease-out;
+}
+
+@keyframes blown{
+  0%{transform:rotate(0);}
+  50%{transform:rotate(-8deg);}
+  100%{transform:rotate(0);}
+}
 </style>
 </head>
 <body>
@@ -156,27 +350,82 @@ button:focus-visible{outline:3px solid #c9bcff;outline-offset:3px}
       <h2>Unlock Ultra Instinct ⚡</h2><p>Tap the button to charge your birthday ki.</p>
       <div class="progress"><span id="miniBar"></span></div><p id="chargeText">Power level: 0%</p>
       <button class="primary" id="charge">CHARGE KI ⚡</button>`,
-    cake: `<div class="eyebrow">A little birthday tradition 🎂</div>
-<h2>Make a wish, MiStoma ✨</h2>
-<p>Tap all the candles to blow them out. 💨💜</p>
+    cake:`<div class="eyebrow">A little birthday tradition 🎂</div>
 
-<div style="font-size:4rem;line-height:1;margin:28px 0 10px;letter-spacing:8px">
-<button class="candle" onclick="blow(this)" style="background:none;border:0;font-size:3rem;padding:8px">🕯️</button>
-<button class="candle" onclick="blow(this)" style="background:none;border:0;font-size:3rem;padding:8px">🕯️</button>
-<button class="candle" onclick="blow(this)" style="background:none;border:0;font-size:3rem;padding:8px">🕯️</button>
-<button class="candle" onclick="blow(this)" style="background:none;border:0;font-size:3rem;padding:8px">🕯️</button>
-<button class="candle" onclick="blow(this)" style="background:none;border:0;font-size:3rem;padding:8px">🕯️</button>
+<h2>Make a wish, MiStoma ✨</h2>
+
+<p>Tap each candle to blow it out. 💨💜</p>
+
+<div class="cake-scene">
+
+  <div class="candles">
+
+    <button class="candle" onclick="blow(this)">
+      <span class="flame">🔥</span>
+      <span class="wick"></span>
+      <span class="candle-body"></span>
+      <span class="smoke">💨</span>
+    </button>
+
+    <button class="candle" onclick="blow(this)">
+      <span class="flame">🔥</span>
+      <span class="wick"></span>
+      <span class="candle-body"></span>
+      <span class="smoke">💨</span>
+    </button>
+
+    <button class="candle" onclick="blow(this)">
+      <span class="flame">🔥</span>
+      <span class="wick"></span>
+      <span class="candle-body"></span>
+      <span class="smoke">💨</span>
+    </button>
+
+    <button class="candle" onclick="blow(this)">
+      <span class="flame">🔥</span>
+      <span class="wick"></span>
+      <span class="candle-body"></span>
+      <span class="smoke">💨</span>
+    </button>
+
+    <button class="candle" onclick="blow(this)">
+      <span class="flame">🔥</span>
+      <span class="wick"></span>
+      <span class="candle-body"></span>
+      <span class="smoke">💨</span>
+    </button>
+
+  </div>
+
+  <div class="cake-top">
+    <div class="cake-icing"></div>
+    <div class="cake-berries">♥ &nbsp; ♥ &nbsp; ♥ &nbsp; ♥</div>
+  </div>
+
+  <div class="cake-body">
+    <div class="cake-shine"></div>
+  </div>
+
+  <div class="cake-plate"></div>
+
 </div>
 
-<div style="font-size:7rem;line-height:1">🎂</div>
-
-<p id="wishText" class="message">Five little candles are waiting for you. ✨</p>
+<p id="wishText" class="message">
+  Five little candles are waiting for you. ✨
+</p>
 
 <div id="wishDone" class="hidden">
-<h2>🥹💜 Wish made!</h2>
-<p>Happy birthday, my sweet boy.</p>
-<p>May all your wishes come true. 🌌✨</p>
-<button class="primary" onclick="document.getElementById('wishDone').classList.remove('hidden');">I made my wish 💜</button>
+
+  <h2>🥹💜 Wish made!</h2>
+
+  <p>Happy birthday, my sweet boy.</p>
+
+  <p>May all your wishes come true. 🌌✨</p>
+
+  <button class="primary" onclick="showFinish()">
+    Continue to your surprise 💜
+  </button>
+
 </div>`,
     final:`<div class="eyebrow">You found the suspicious button...</div>
       <h2>Not yet. 😭</h2><p>The actual present is at the end. Go back and finish your birthday journey first, birthday boy.</p>`
@@ -216,23 +465,35 @@ button:focus-visible{outline:3px solid #c9bcff;outline-offset:3px}
   });
 })();
  window.blow=function(btn){
+
   if(btn.dataset.blown)return;
+
   btn.dataset.blown='1';
-  btn.textContent='💨';
+  btn.classList.add('blown');
 
   const candles=document.querySelectorAll('.candle');
-  const left=[...candles].filter(c=>!c.dataset.blown).length;
+  const remaining=[...candles].filter(c=>!c.dataset.blown).length;
 
   const text=document.getElementById('wishText');
   const done=document.getElementById('wishDone');
 
-  if(left>0){
-    text.textContent=left+' candle'+(left===1?'':'s')+' still glowing ✨';
+  if(remaining>0){
+
+    text.textContent=
+      remaining+' candle'+(remaining===1?'':'s')+
+      ' still glowing ✨';
+
   }else{
-    text.textContent='✨ Every candle is out. Make your wish, MiStoma. ✨';
-    done.classList.remove('hidden');
+
+    text.textContent=
+      '✨ Every candle is out. Make your wish, MiStoma. ✨';
+
+    setTimeout(function(){
+      done.classList.remove('hidden');
+    },700);
+
   }
-}; 
+};
 </script>
 </body>
 </html>
