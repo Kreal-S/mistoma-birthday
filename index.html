@@ -78,6 +78,7 @@ button:focus-visible{outline:3px solid #c9bcff;outline-offset:3px}
     <button data-panel="debt">🎮<br>An important debt</button>
     <button data-panel="training">⚡<br>Birthday power-up</button>
     <button data-panel="final">🎁<br>Don't touch this yet...</button>
+    <button data-panel="cake">🎂<br>Make a Wish</button>
   </div>
   <div id="panel" class="card hidden"></div>
   <button class="secondary hidden" id="closePanel">← Back</button>
@@ -155,6 +156,28 @@ button:focus-visible{outline:3px solid #c9bcff;outline-offset:3px}
       <h2>Unlock Ultra Instinct ⚡</h2><p>Tap the button to charge your birthday ki.</p>
       <div class="progress"><span id="miniBar"></span></div><p id="chargeText">Power level: 0%</p>
       <button class="primary" id="charge">CHARGE KI ⚡</button>`,
+    cake: `<div class="eyebrow">A little birthday tradition 🎂</div>
+<h2>Make a wish, MiStoma ✨</h2>
+<p>Tap all the candles to blow them out. 💨💜</p>
+
+<div style="font-size:4rem;line-height:1;margin:28px 0 10px;letter-spacing:8px">
+<button class="candle" onclick="blow(this)" style="background:none;border:0;font-size:3rem;padding:8px">🕯️</button>
+<button class="candle" onclick="blow(this)" style="background:none;border:0;font-size:3rem;padding:8px">🕯️</button>
+<button class="candle" onclick="blow(this)" style="background:none;border:0;font-size:3rem;padding:8px">🕯️</button>
+<button class="candle" onclick="blow(this)" style="background:none;border:0;font-size:3rem;padding:8px">🕯️</button>
+<button class="candle" onclick="blow(this)" style="background:none;border:0;font-size:3rem;padding:8px">🕯️</button>
+</div>
+
+<div style="font-size:7rem;line-height:1">🎂</div>
+
+<p id="wishText" class="message">Five little candles are waiting for you. ✨</p>
+
+<div id="wishDone" class="hidden">
+<h2>🥹💜 Wish made!</h2>
+<p>Happy birthday, my sweet boy.</p>
+<p>May all your wishes come true. 🌌✨</p>
+<button class="primary" onclick="document.getElementById('wishDone').classList.remove('hidden');">I made my wish 💜</button>
+</div>`,
     final:`<div class="eyebrow">You found the suspicious button...</div>
       <h2>Not yet. 😭</h2><p>The actual present is at the end. Go back and finish your birthday journey first, birthday boy.</p>`
   };
@@ -192,6 +215,24 @@ button:focus-visible{outline:3px solid #c9bcff;outline-offset:3px}
     },150);
   });
 })();
+ window.blow=function(btn){
+  if(btn.dataset.blown)return;
+  btn.dataset.blown='1';
+  btn.textContent='💨';
+
+  const candles=document.querySelectorAll('.candle');
+  const left=[...candles].filter(c=>!c.dataset.blown).length;
+
+  const text=document.getElementById('wishText');
+  const done=document.getElementById('wishDone');
+
+  if(left>0){
+    text.textContent=left+' candle'+(left===1?'':'s')+' still glowing ✨';
+  }else{
+    text.textContent='✨ Every candle is out. Make your wish, MiStoma. ✨';
+    done.classList.remove('hidden');
+  }
+}; 
 </script>
 </body>
 </html>
